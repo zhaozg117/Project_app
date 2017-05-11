@@ -1,0 +1,20 @@
+<div ng-controller="serviceCtrl" id="serviceDetail" style="margin-left: 200px;">
+
+    <div ng-show="isShow">
+        什么鬼
+    </div>
+
+    <p>slsdlfksf</p>
+    <p>{{totalServerItems}}</p>
+    <ul>
+        <li ng-repeat="book in books">
+            <span ng-repeat=" (key ,value) in book">
+                {{key}} -- {{value}} ***
+            </span>
+
+        </li>
+    </ul>
+    <button class="btn" ng-click="showDiv()">点击</button>
+    <button class="btn" ng-click="goIndex()">go to home</button>
+    <button class="btn" ng-click="getHttpData()">获取数据</button>
+</div>

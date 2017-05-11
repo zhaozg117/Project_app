@@ -1,4 +1,4 @@
-var routerApp = angular.module('intelliTest', ['ui.router']);
+var routerApp = angular.module('intelliTest', ['ui.router','serviceModule','homeModule']);
 
 routerApp.run(function($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
@@ -17,14 +17,15 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl:'page/main.html'
                 }
             }
-            //templateUrl:'page/document.html'
         })
         .state('service',{
             url:'/service',
-            templateUrl: 'page/services.html',
-            controller: function($scope, $state) {
-                $scope.goIndex = function() {
-                    $state.go("index");
+            views:{
+                '':{
+                    templateUrl: 'page/services.html',
+                },
+                'serviceDetail@service':{
+                    templateUrl: 'page/servidetail.html',
                 }
             }
         })
