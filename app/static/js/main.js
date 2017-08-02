@@ -9,6 +9,8 @@ require.config({
 
        "homeCtrl":"static/js/controller/homeCtrl",
        "serviceCtrl":"static/js/controller/serviceCtrl",
+       
+        "menudir":"static/js/directive/directive",
    },
    shim:{
        "angular":{exports:"angular"},
@@ -18,7 +20,7 @@ require.config({
 
 });
 
-require(["angular","jquery","app","appRoute","homeCtrl","serviceCtrl"],function(angular,$q){
+require(["angular","jquery","app","appRoute","homeCtrl","serviceCtrl", "menudir"],function(angular,$q){
   $q(function(){
       angular.bootstrap(document,["intelliTest"]);
   });
