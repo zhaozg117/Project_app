@@ -1231,7 +1231,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
       return compositeName ? findState(compositeName[1]) : root;
     },
 
-    // inherit 'data' from parent and override by own values (if any)
+    // inherit 'mock' from parent and override by own values (if any)
     data: function(state) {
       if (state.parent && state.parent.data) {
         state.data = state.self.data = extend({}, state.parent.data, state.data);
@@ -1487,7 +1487,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
    * Existing builder functions and current return values:
    *
    * - **parent** `{object}` - returns the parent state object.
-   * - **data** `{object}` - returns state data, including any inherited data that is not
+   * - **mock** `{object}` - returns state mock, including any inherited mock that is not
    *   overridden by own values (if any).
    * - **url** `{object}` - returns a {link ui.router.util.type:UrlMatcher} or null.
    * - **navigable** `{object}` - returns closest ancestor state that has a URL (aka is 
@@ -1665,9 +1665,9 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
    *   just because a search/query parameter has changed (via $location.search() or $location.hash()). 
    *   Useful for when you'd like to modify $location.search() without triggering a reload.
    *
-   * <a id='data'></a>
+   * <a id='mock'></a>
    *
-   * - **`data`** - {object=} - Arbitrary data object, useful for custom configuration.
+   * - **`mock`** - {object=} - Arbitrary mock object, useful for custom configuration.
    *
    * @example
    * <pre>
@@ -1717,7 +1717,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory,           $
    * @property {object} params A param object, e.g. {sectionId: section.id)}, that 
    * you'd like to test against the current active state.
    * @property {object} current A reference to the state's config object. However 
-   * you passed it in. Useful for accessing custom data.
+   * you passed it in. Useful for accessing custom mock.
    * @property {object} transition Currently pending transition. A promise that'll 
    * resolve or reject.
    *
@@ -2600,7 +2600,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * <pre>
  * <div ui-view></div>
  * <div ui-view="chart"></div> 
- * <div ui-view="data"></div> 
+ * <div ui-view="mock"></div>
  * </pre>
  * 
  * <pre>
@@ -2612,7 +2612,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  *     "chart": {
  *       template: "<chart_thing/>"
  *     },
- *     "data": {
+ *     "mock": {
  *       template: "<data_thing/>"
  *     }
  *   }    

@@ -19,7 +19,7 @@ define(["app"],function(app){
         console.log($scope.totalServerItems);
 
         $scope.getHttpData = function () {
-            $http.get("data/books2.json")
+            $http.get("mock/books2.json")
                 .success(function (data) {
                     console.log(data);
                     $scope.books = data;
